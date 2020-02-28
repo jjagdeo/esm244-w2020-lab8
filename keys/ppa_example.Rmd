@@ -44,7 +44,7 @@ Get the sage grouse data (note: we'll treat each *observation* as a separate "ev
 ```{r}
 grouse <- read_sf(here("data","sg_data","ds68.shp")) %>% 
   dplyr::select(DATE_) %>% 
-  st_transform(crs = 6345)
+  st_transform(crs = 4326)
 
 # Note: this transform to 6345 *works*, but shouldn't be necessary and messes up the G & L functions...
 
@@ -56,7 +56,7 @@ Get the Mono County shapefile:
 
 ```{r}
 county <- read_sf(dsn = here("data","sg_data","County_Boundaries.shp")) %>% dplyr::select(CountyName) %>% 
-  st_transform(crs = 6345)
+  st_transform(crs = 4326)
 
 plot(county)
 ```
